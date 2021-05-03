@@ -117,10 +117,11 @@ namespace WebAPI.Controllers
             }
         }
         [Route("GetAllDepartmentNames")]
+        [HttpGet]
         public async Task<JsonResult> GetAllDepartmentNames()
         {
             var table = await _dbContext.Department
-              .Select(d =>  d.DepartmentName)
+              .Select(d => d.DepartmentName)
               .ToListAsync();
             return new JsonResult(table);
         }
